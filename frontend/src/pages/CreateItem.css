@@ -1,0 +1,39 @@
+.create-item-container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.create-item-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.create-item-subtitle {
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.create-item-form {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .create-item-form {
+    padding: 20px;
+  }
+}

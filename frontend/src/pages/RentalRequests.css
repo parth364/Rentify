@@ -1,0 +1,119 @@
+.page-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 4px;
+  width: fit-content;
+}
+
+.tab {
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.tab:hover {
+  color: var(--text);
+}
+
+.tab.active {
+  background: var(--primary);
+  color: white;
+}
+
+.rental-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rental-card {
+  padding: 20px;
+}
+
+.rental-card:hover {
+  transform: none;
+}
+
+.rental-card-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.rental-item-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--primary-light);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.rental-item-title:hover {
+  text-decoration: underline;
+}
+
+.rental-dates {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.rental-person {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.rental-message {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  max-width: 400px;
+}
+
+.rental-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.rental-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.rental-actions {
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .rental-card-inner {
+    flex-direction: column;
+  }
+
+  .rental-right {
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}

@@ -1,0 +1,44 @@
+/**
+ * API client for all HTTP requests to the Rentify backend.
+ * Automatically attaches JWT token from localStorage.
+ * Input: endpoint, options (method, body, etc.)
+ * Output: parsed JSON response
+ */
+
+const BASE_URL = import.meta.env.VITE_API_URL || '/api';
+
+async function request(endpoint, options = {}) {
+  const token = localStorage.getItem('rentify_token');
+
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      ...(token && { Authorization: `Bearer ${token}` }),
+      ...options.headers,
+    },
+    ...options,
+  };
+
+  if (config.body && typeof config.body === 'object') {
+    config.body = JSON.stringify(config.body);
+  }
+
+  const response = await fetch(`${BASE_URL}${endpoint}`, config);
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || 'Something went wrong');
+  }
+
+  return data;
+}
+
+export const api = {
+  get: (endpoint) => request(endpoint, { method: 'GET' }),
+  post: (endpoint, body) => request(endpoint, { method: 'POST', body }),
+  put: (endpoint, body) => request(endpoint, { method: 'PUT', body }),
+  patch: (endpoint, body) => request(endpoint, { method: 'PATCH', body }),
+  delete: (endpoint) => request(endpoint, { method: 'DELETE' }),
+};
+
+export default api;

@@ -1,0 +1,144 @@
+.back-btn {
+  margin-bottom: 20px;
+}
+
+.item-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.item-detail-image {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.item-detail-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item-detail-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.item-detail-price {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.item-detail-price span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.item-detail-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.item-detail-location,
+.item-detail-date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.item-detail-desc {
+  margin-bottom: 24px;
+}
+
+.item-detail-desc h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.item-detail-desc p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.item-detail-owner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  margin-bottom: 24px;
+  transition: background var(--transition-fast);
+}
+
+.item-detail-owner:hover {
+  background: var(--bg-input);
+}
+
+.owner-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-input);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+}
+
+.owner-name {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.rent-form {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.rent-form h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.rent-dates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .item-detail {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .item-detail-title {
+    font-size: 1.4rem;
+  }
+
+  .item-detail-price {
+    font-size: 1.5rem;
+  }
+
+  .rent-dates {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
