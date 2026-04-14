@@ -23,7 +23,15 @@ async function request(endpoint, options = {}) {
     config.body = JSON.stringify(config.body);
   }
 
-  const response = await fetch(`${BASE_URL}${endpoint}`, config);
+  // Handle duplicate /api/api securely
+  let finalEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+  let finalBaseUrl = BASE_URL.replace(/\/+$/, '');
+  
+  if (finalBaseUrl.endsWith('/api') && finalEndpoint.startsWith('/api/')) {
+    finalEndpoint = finalEndpoint.replace(/^\/api/, '');
+  }
+
+  const response = await fetch(`${finalBaseUrl}${finalEndpoint}`, config);
   const data = await response.json();
 
   if (!response.ok) {
